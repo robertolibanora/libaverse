@@ -1,34 +1,105 @@
 {% extends "base.html" %}
 {% set title="Store" %}
 
-{% block content %}
-<section class="card">
-  <h2 style="margin:0 0 6px 0;">Store</h2>
-  <p style="margin:0;color:var(--muted);">Compra roba con mix di valute. È un sistema economico serio (no).</p>
-</section>
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='app/store/store.css') }}">
+{% endblock %}
 
-<section class="grid" id="store-list" style="margin-top:12px;">
-  {% for item in catalog %}
-  <div class="card" data-item="{{ item.id }}">
-    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
-      <div>
-        <h3 style="margin:0 0 6px 0;">{{ item.name }}</h3>
-        <p style="margin:0;color:var(--muted);font-size:13px;">{{ item.desc }}</p>
-      </div>
+{% block content %}
+<div class="stage">
+  <div class="stage__bg" style="background-image:url('{{ url_for('static', filename='app/ui/store_bg.webp') }}')"></div>
+  <div class="stage__overlay"></div>
+
+  <div class="stage__content">
+
+    <div class="hud">
+      <div class="hud__title">🛒 Store</div>
+      <button class="btn store-small" id="store-refresh">Refresh</button>
     </div>
 
-    <p style="margin:10px 0 12px 0;font-weight:800;">
-      {% if item.cost.fish %}🐟 {{ item.cost.fish }} {% endif %}
-      {% if item.cost.brain %}🧠 {{ item.cost.brain }} {% endif %}
-      {% if item.cost.vibe %}🎧 {{ item.cost.vibe }} {% endif %}
-    </p>
+    <!-- AVATAR -->
+    <section class="card store-avatar">
+      <img id="avatar-img"
+           class="avatar-img"
+           src="{{ url_for('static', filename='app/ui/avatar_default.png') }}"
+           alt="Avatar">
+      <div class="avatar-meta">
+        <div class="avatar-title">Liba</div>
+        <div class="avatar-sub">
+          Skin equip: <b id="equipped-skin">{{ state.equipped_skin if state.equipped_skin else "default" }}</b>
+        </div>
+        <div class="avatar-badges">
+          <span class="badge">🐟 {{ state.wallet.fish }}</span>
+          <span class="badge">🧠 {{ state.wallet.brain }}</span>
+          <span class="badge">🎧 {{ state.wallet.vibe }}</span>
+        </div>
+      </div>
+    </section>
 
-    <button class="btn buy" data-buy="{{ item.id }}">Compra</button>
+    <!-- CATALOGO -->
+    <section class="store-grid" id="store-grid">
+      {% for item in catalog %}
+      {% set owned = (item.id in state.inventory) or (item.id in state.skins) %}
+      {% set is_skin = (item.type == "skin") %}
+      {% set equipped = is_skin and (state.equipped_skin == item.id) %}
+      <article class="card store-item"
+               data-item-id="{{ item.id }}"
+               data-item-type="{{ item.type }}"
+               data-owned="{{ '1' if owned else '0' }}"
+               data-equipped="{{ '1' if equipped else '0' }}"
+               data-cost-fish="{{ item.cost.fish if item.cost and item.cost.fish is not none else 0 }}"
+               data-cost-brain="{{ item.cost.brain if item.cost and item.cost.brain is not none else 0 }}"
+               data-cost-vibe="{{ item.cost.vibe if item.cost and item.cost.vibe is not none else 0 }}"
+      >
+
+        <div class="item-top">
+          <img class="item-img" src="{{ item.img }}" alt="{{ item.name }}">
+          <div class="item-meta">
+            <div class="item-name">{{ item.name }}</div>
+            <div class="item-desc">{{ item.desc }}</div>
+          </div>
+        </div>
+
+        <div class="item-cost">
+          {% if item.cost.fish %}<span class="chip">🐟 {{ item.cost.fish }}</span>{% endif %}
+          {% if item.cost.brain %}<span class="chip">🧠 {{ item.cost.brain }}</span>{% endif %}
+          {% if item.cost.vibe %}<span class="chip">🎧 {{ item.cost.vibe }}</span>{% endif %}
+          {% if (not item.cost.fish) and (not item.cost.brain) and (not item.cost.vibe) %}
+            <span class="chip">FREE</span>
+          {% endif %}
+        </div>
+
+        <div class="item-actions">
+          {% if is_skin %}
+            {% if equipped %}
+              <button class="btn secondary" disabled>Equipped ✅</button>
+            {% elif owned %}
+              <button class="btn equip" data-equip="{{ item.id }}">Equip</button>
+            {% else %}
+              <button class="btn buy" data-buy="{{ item.id }}">Buy</button>
+            {% endif %}
+          {% else %}
+            {% if owned %}
+              <button class="btn secondary" disabled>Owned ✅</button>
+            {% else %}
+              <button class="btn buy" data-buy="{{ item.id }}">Buy</button>
+            {% endif %}
+          {% endif %}
+        </div>
+
+        <div class="item-footer">
+          <span class="pill">{{ item.type|upper }}</span>
+          <span class="hint" data-hint>—</span>
+        </div>
+
+      </article>
+      {% endfor %}
+    </section>
+
   </div>
-  {% endfor %}
-</section>
+</div>
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ url_for('static', filename='app/js/store.js') }}"></script>
+<script src="{{ url_for('static', filename='app/store/store.js') }}"></script>
 {% endblock %}

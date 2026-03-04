@@ -9,12 +9,22 @@
   <meta name="theme-color" content="#000000" />
 
   <link rel="stylesheet" href="{{ url_for('static', filename='app/css/app.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='app/ui/avatar.css') }}">
+  <script src="{{ url_for('static', filename='app/ui/avatar.js') }}"></script>
   {% block head_extra %}{% endblock %}
 </head>
 
 <body class="app">
   {% include "_partials/topbar.html" %}
-
+    <!-- GLOBAL LIBA AVATAR -->
+<div id="liba-avatar"
+     class="liba-avatar"
+     data-world="{{ request.path.split('/')[-1] if request.path.startswith('/world/') else 'hub' }}"
+     data-equipped-skin="{{ state.equipped_skin if state and state.equipped_skin else '' }}">
+  <img id="liba-avatar-img"
+       src="{{ url_for('static', filename='app/ui/avatar/default.png') }}"
+       alt="Liba Avatar">
+</div>
   <main class="screen">
     {% block content %}{% endblock %}
   </main>

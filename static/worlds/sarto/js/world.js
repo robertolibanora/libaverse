@@ -11,24 +11,24 @@ let SETTINGS = {
 let currentCustomer = null;
 let patienceLeft = 1; // 0..1
 let timer = null;
-
 let streak = 0;
 
-function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+function rand(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
 
 async function loadData(){
   const fishesData = await window.API.apiGet("/api/world/sarto/data/fishes.json");
   const custData = await window.API.apiGet("/api/world/sarto/data/customers.json");
-  FISHES = fishesData.fishes || [];
-  CUSTOMERS = custData.customers || [];
-  SETTINGS = Object.assign(SETTINGS, custData.settings || {});
+  FISHES = fishesData?.fishes || [];
+  CUSTOMERS = custData?.customers || [];
+  SETTINGS = Object.assign(SETTINGS, custData?.settings || {});
 }
 
 function renderFishGrid(){
   const grid = document.getElementById("fish-grid");
   grid.innerHTML = "";
 
-  FISHES.slice(0, 4).forEach(f => {
+  const fishes = FISHES.slice(0, 4);
+  fishes.forEach(f => {
     const card = document.createElement("div");
     card.className = "fish-card";
     card.dataset.fish = f.id;
@@ -46,8 +46,16 @@ function renderFishGrid(){
 
 function setCustomer(c){
   currentCustomer = c;
-  document.getElementById("cust-name").textContent = c.name;
-  document.getElementById("cust-request").textContent = c.request;
+
+  const nameEl = document.getElementById("cust-name");
+  const iconEl = document.getElementById("cust-icon");
+  const reqEl  = document.getElementById("cust-request");
+  const imgEl  = document.getElementById("cust-img");
+
+  if(nameEl) nameEl.textContent = c?.name || "—";
+  if(iconEl) iconEl.textContent = c?.icon || "🙂";
+  if(reqEl)  reqEl.textContent  = c?.request || "—";
+  if(imgEl)  imgEl.src = c?.img || "/static/worlds/sarto/assets/customers/cust_placeholder.png";
 }
 
 function setPatience(p){
@@ -84,7 +92,6 @@ async function onTimeout(){
   document.getElementById("streak").textContent = streak;
   document.getElementById("last").textContent = "TIMEOUT 💀";
 
-  // penalità: wrong
   const data = await window.API.apiPost("/api/earn", { world:"sarto", result:"wrong" });
   if(data?.state) window.LIBA.renderWallet(data.state);
   window.LIBA.toast(`Cliente scappato. ${SETTINGS.wrong_delta} 🐟`);
@@ -93,6 +100,10 @@ async function onTimeout(){
 }
 
 function nextRound(){
+  if(!CUSTOMERS.length){
+    window.LIBA.toast("Nessun cliente nel JSON 😭");
+    return;
+  }
   setCustomer(rand(CUSTOMERS));
   setPatience(1);
   startTimer();
@@ -108,24 +119,25 @@ async function pickFish(fishId){
     streak += 1;
     document.getElementById("last").textContent = "OK ✅";
     window.LIBA.toast(`Venduto. +${SETTINGS.correct_delta} 🐟`);
+
     const data = await window.API.apiPost("/api/earn", { world:"sarto", result:"correct" });
     if(data?.state) window.LIBA.renderWallet(data.state);
 
-    // streak bonus
     if(streak > 0 && (streak % SETTINGS.streak_bonus_every === 0)){
       await window.API.apiPost("/api/earn", {
         world:"sarto",
         result:"correct",
-        delta: { fish: SETTINGS.streak_bonus_amount } // bonus extra
+        delta: { fish: SETTINGS.streak_bonus_amount }
       });
       const st = await window.LIBA.refreshState();
-      window.LIBA.toast(`STREAK +${SETTINGS.streak_bonus_amount} 🐟 🔥`);
       if(st) window.LIBA.renderWallet(st);
+      window.LIBA.toast(`STREAK +${SETTINGS.streak_bonus_amount} 🐟 🔥`);
     }
   } else {
     streak = 0;
     document.getElementById("last").textContent = "NO ❌";
     window.LIBA.toast(`Sbagliato. ${SETTINGS.wrong_delta} 🐟`);
+
     const data = await window.API.apiPost("/api/earn", { world:"sarto", result:"wrong" });
     if(data?.state) window.LIBA.renderWallet(data.state);
   }
@@ -139,7 +151,6 @@ async function pickFish(fishId){
   renderFishGrid();
 
   document.getElementById("sarto-skip").addEventListener("click", async ()=>{
-    // skip = timeout soft (per test)
     stopTimer();
     await onTimeout();
   });

@@ -17,11 +17,23 @@
     </div>
 
     <div class="sarto-top">
-      <img class="sarto-roberto" src="{{ url_for('static', filename='worlds/sarto/assets/roberto_fisher.png') }}" alt="Roberto pescatore">
+      <img class="sarto-roberto"
+           src="{{ url_for('static', filename='worlds/sarto/assets/roberto_fisher.png') }}"
+           alt="Roberto pescatore">
+
       <div class="sarto-customer card">
-        <div class="row">
-          <div class="label">Cliente:</div>
-          <div id="cust-name" class="value">—</div>
+
+        <div class="cust-head">
+          <img id="cust-img" class="cust-img"
+               src="{{ url_for('static', filename='worlds/sarto/assets/customers/cust_placeholder.png') }}"
+               alt="Cliente">
+          <div class="cust-meta">
+            <div class="cust-name">
+              <span id="cust-icon">🙂</span>
+              <span id="cust-name">—</span>
+            </div>
+            <div class="cust-sub">Cliente in pescheria</div>
+          </div>
         </div>
 
         <div class="bubble" id="cust-request">Carico richiesta...</div>

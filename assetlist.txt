@@ -11,10 +11,19 @@
 static/worlds/sarto/assets/bg.webp
 static/worlds/sarto/assets/roberto_fisher.png
 
+# Fish items
 static/worlds/sarto/assets/fishes/fish_01.png
 static/worlds/sarto/assets/fishes/fish_02.png
 static/worlds/sarto/assets/fishes/fish_03.png
 static/worlds/sarto/assets/fishes/fish_04.png
+
+# Customers
+static/worlds/sarto/assets/customers/cust_placeholder.png
+static/worlds/sarto/assets/customers/cust_gourmet.png
+static/worlds/sarto/assets/customers/cust_aunt.png
+static/worlds/sarto/assets/customers/cust_businessman.png
+static/worlds/sarto/assets/customers/cust_hipster.png
+static/worlds/sarto/assets/customers/cust_oldman.png
 
 
 # =====================================================
@@ -24,6 +33,7 @@ static/worlds/sarto/assets/fishes/fish_04.png
 static/worlds/malibu/assets/bg.webp
 static/worlds/malibu/assets/roberto_night.png
 
+# NPCs
 static/worlds/malibu/assets/npcs/npc_01.png
 static/worlds/malibu/assets/npcs/npc_02.png
 static/worlds/malibu/assets/npcs/npc_03.png
@@ -36,8 +46,15 @@ static/worlds/malibu/assets/npcs/npc_05.png
 # =====================================================
 
 static/worlds/kpmg/assets/bg.webp
-static/worlds/kpmg/assets/roberto_consultant.png
 
+# Roberto
+static/worlds/kpmg/assets/roberto_tie.png
+
+# Desk scene
+static/worlds/kpmg/assets/desk.png
+static/worlds/kpmg/assets/pc.png
+
+# Icons
 static/worlds/kpmg/assets/icons/question.png
 static/worlds/kpmg/assets/icons/analysis.png
 static/worlds/kpmg/assets/icons/ai.png
@@ -49,9 +66,18 @@ static/worlds/kpmg/assets/icons/aml.png
 # =====================================================
 
 static/app/ui/logo.png
+
+# Currency icons
 static/app/ui/icon_fishcoin.png
 static/app/ui/icon_braincell.png
 static/app/ui/icon_vibetoken.png
+
+# Avatars
+static/app/ui/avatar_default.png
+static/app/ui/avatar_kpmg_tie.png
+
+# Store background
+static/app/ui/store_bg.webp
 
 
 # =====================================================
@@ -69,3 +95,5 @@ static/app/store/social_confidence.png
 
 static/app/pwa/icon-192.png
 static/app/pwa/icon-512.png
+
+un unico avatar globale di Liba che cambia outfit automaticamente in ogni world

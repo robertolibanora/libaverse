@@ -1,0 +1,146 @@
+.store-small{
+  width:auto !important;
+  padding:10px 12px !important;
+  border-radius:12px !important;
+}
+
+/* Avatar card */
+.store-avatar{
+  margin-top:12px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.avatar-img{
+  width:70px;
+  height:70px;
+  border-radius:18px;
+  object-fit:cover;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  filter: drop-shadow(0 14px 20px rgba(0,0,0,.55));
+}
+
+.avatar-title{
+  font-weight:950;
+  font-size:16px;
+  line-height:1.1;
+}
+
+.avatar-sub{
+  margin-top:4px;
+  font-size:12px;
+  color:rgba(255,255,255,.7);
+}
+
+.avatar-badges{
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.badge{
+  display:inline-flex;
+  gap:6px;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  font-weight:900;
+  font-size:12px;
+}
+
+/* Grid */
+.store-grid{
+  margin-top:12px;
+  display:grid;
+  gap:12px;
+}
+
+/* Item cards */
+.store-item{
+  display:grid;
+  gap:10px;
+}
+
+.item-top{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.item-img{
+  width:76px;
+  height:76px;
+  border-radius:18px;
+  object-fit:cover;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  filter: drop-shadow(0 14px 20px rgba(0,0,0,.55));
+}
+
+.item-name{
+  font-weight:950;
+  font-size:14px;
+  line-height:1.15;
+}
+
+.item-desc{
+  margin-top:6px;
+  font-size:12px;
+  color:rgba(255,255,255,.7);
+  line-height:1.2;
+}
+
+.item-cost{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.chip{
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  font-weight:900;
+  font-size:12px;
+}
+
+.item-actions{
+  display:grid;
+}
+
+.item-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.pill{
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);
+  font-weight:950;
+  font-size:11px;
+  letter-spacing:.5px;
+}
+
+.hint{
+  font-size:12px;
+  color:rgba(255,255,255,.65);
+}
+
+/* Disabled look */
+.btn.secondary{
+  opacity:.85;
+}
+
+.store-item[data-owned="1"]{
+  outline:1px dashed rgba(255,255,255,.14);
+}
