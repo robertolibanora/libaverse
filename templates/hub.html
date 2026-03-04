@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% set title="LIBAVERSE" %}
+
+{% block content %}
+<section class="card">
+  <h1 style="margin:0 0 8px 0;">LIBAVERSE</h1>
+  <p style="margin:0;color:var(--muted);">
+    Tre mondi, tre valute, una vita troppo veloce.
+  </p>
+</section>
+
+<section class="grid">
+  <a class="card" href="{{ url_for('world_sarto') }}">🐟 SARTO — Fish Dealer</a>
+  <a class="card" href="{{ url_for('world_kpmg') }}">🧠 KPMG — PC & Quiz</a>
+  <a class="card" href="{{ url_for('world_malibu') }}">🎧 MALIBU — NPC Interactions</a>
+  <a class="card" href="{{ url_for('store') }}">🛒 Store</a>
+</section>
+
+<section class="card" style="margin-top:12px;">
+  <button class="btn" id="reset">Reset (dev)</button>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById("reset").addEventListener("click", async ()=>{
+  const data = await window.API.apiPost("/api/reset", {});
+  if(data?.state){
+    window.LIBA.renderWallet(data.state);
+    window.LIBA.toast("Reset completato 💀");
+  }
+});
+</script>
+{% endblock %}

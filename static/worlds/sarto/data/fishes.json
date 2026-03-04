@@ -1,0 +1,32 @@
+{
+  "fishes": [
+    {
+      "id": "fish_cyber_tuna",
+      "name": "Tonno Cyber",
+      "tagline": "glow verde, sospetto ma premium",
+      "img": "/static/worlds/sarto/assets/fishes/fish_01.png",
+      "tags": ["cyber", "premium", "boss"]
+    },
+    {
+      "id": "fish_ninja_seabass",
+      "name": "Branzino Ninja",
+      "tagline": "stealth, elegante, zero caos",
+      "img": "/static/worlds/sarto/assets/fishes/fish_02.png",
+      "tags": ["elegante", "stealth", "family"]
+    },
+    {
+      "id": "fish_mars_salmon",
+      "name": "Salmone di Marte",
+      "tagline": "rosso cosmico, vibes spaziali",
+      "img": "/static/worlds/sarto/assets/fishes/fish_03.png",
+      "tags": ["cosmico", "vibes", "party"]
+    },
+    {
+      "id": "fish_ceo_octopus",
+      "name": "Polpo CEO",
+      "tagline": "cravatta immaginaria, domina la call",
+      "img": "/static/worlds/sarto/assets/fishes/fish_04.png",
+      "tags": ["boss", "call", "grind"]
+    }
+  ]
+}

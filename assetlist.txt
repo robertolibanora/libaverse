@@ -1,0 +1,71 @@
+# =====================================================
+# LIBAVERSE — IMAGE ASSET LIST
+# =====================================================
+# Tutti i percorsi sono relativi alla root del progetto Flask
+# (cartella dove si trova app.py)
+
+# =====================================================
+# SARTO WORLD
+# =====================================================
+
+static/worlds/sarto/assets/bg.webp
+static/worlds/sarto/assets/roberto_fisher.png
+
+static/worlds/sarto/assets/fishes/fish_01.png
+static/worlds/sarto/assets/fishes/fish_02.png
+static/worlds/sarto/assets/fishes/fish_03.png
+static/worlds/sarto/assets/fishes/fish_04.png
+
+
+# =====================================================
+# MALIBU WORLD
+# =====================================================
+
+static/worlds/malibu/assets/bg.webp
+static/worlds/malibu/assets/roberto_night.png
+
+static/worlds/malibu/assets/npcs/npc_01.png
+static/worlds/malibu/assets/npcs/npc_02.png
+static/worlds/malibu/assets/npcs/npc_03.png
+static/worlds/malibu/assets/npcs/npc_04.png
+static/worlds/malibu/assets/npcs/npc_05.png
+
+
+# =====================================================
+# KPMG WORLD
+# =====================================================
+
+static/worlds/kpmg/assets/bg.webp
+static/worlds/kpmg/assets/roberto_consultant.png
+
+static/worlds/kpmg/assets/icons/question.png
+static/worlds/kpmg/assets/icons/analysis.png
+static/worlds/kpmg/assets/icons/ai.png
+static/worlds/kpmg/assets/icons/aml.png
+
+
+# =====================================================
+# GLOBAL UI / HUB
+# =====================================================
+
+static/app/ui/logo.png
+static/app/ui/icon_fishcoin.png
+static/app/ui/icon_braincell.png
+static/app/ui/icon_vibetoken.png
+
+
+# =====================================================
+# STORE
+# =====================================================
+
+static/app/store/car_panda.png
+static/app/store/skin_kpmg_tie.png
+static/app/store/social_confidence.png
+
+
+# =====================================================
+# PWA
+# =====================================================
+
+static/app/pwa/icon-192.png
+static/app/pwa/icon-512.png

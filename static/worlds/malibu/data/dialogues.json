@@ -1,0 +1,70 @@
+{
+  "settings": {
+    "chaos_start": 10,
+    "chaos_max": 100,
+    "chaos_security_threshold": 85,
+    "chaos_decay_per_round": 6,
+    "security_penalty_wrong": 1,
+    "correct_delta": 10,
+    "wrong_delta": -7,
+    "streak_bonus_every": 4,
+    "streak_bonus_amount": 6
+  },
+  "scenes": [
+    {
+      "id": "qr_no",
+      "npc": "Il Tipo Senza QR",
+      "img": "/static/worlds/malibu/assets/npcs/npc_01.png",
+      "line": "Bro ho dimenticato il QR, però mi conoscono tutti qui dentro.",
+      "choices": [
+        { "label": "“Certo, entra pure” (e poi caos)", "correct": false, "chaos_delta": 18 },
+        { "label": "“Se ti conoscono, ti mandano il QR”", "correct": true, "chaos_delta": -6 },
+        { "label": "“Ok ma mi devi convincere in 10 secondi”", "correct": true, "chaos_delta": 2 }
+      ]
+    },
+    {
+      "id": "bathroom",
+      "npc": "La Ragazza Persa",
+      "img": "/static/worlds/malibu/assets/npcs/npc_02.png",
+      "line": "Scusa… dov’è il bagno? Ho 30 secondi di vita.",
+      "choices": [
+        { "label": "Indichi e dici: “Run. Now.”", "correct": true, "chaos_delta": -4 },
+        { "label": "“Boh non so, chiedi al DJ”", "correct": false, "chaos_delta": 14 },
+        { "label": "“Ti accompagno” (eroe, ma perdi tempo)", "correct": true, "chaos_delta": 4 }
+      ]
+    },
+    {
+      "id": "skip_line",
+      "npc": "L’Amico Che Vuole Saltare",
+      "img": "/static/worlds/malibu/assets/npcs/npc_03.png",
+      "line": "Zio fammi saltare la fila che ho fretta, dai… siamo fratelli.",
+      "choices": [
+        { "label": "“Fratelli sì, ma la fila è sacra”", "correct": true, "chaos_delta": -2 },
+        { "label": "“Ok ma fai finta di niente”", "correct": false, "chaos_delta": 16 },
+        { "label": "“Solo se mi porti un’acqua”", "correct": true, "chaos_delta": 6 }
+      ]
+    },
+    {
+      "id": "colleague_spot",
+      "npc": "Il Collega KPMG",
+      "img": "/static/worlds/malibu/assets/npcs/npc_04.png",
+      "line": "Domani call alle 9. Ti vedo… molto ‘stakeholder’ stasera.",
+      "choices": [
+        { "label": "“È tutto governance controllata”", "correct": true, "chaos_delta": 4 },
+        { "label": "“Non sono io. È un deepfake”", "correct": true, "chaos_delta": 8 },
+        { "label": "“Domani non esisto”", "correct": false, "chaos_delta": 20 }
+      ]
+    },
+    {
+      "id": "vip_table",
+      "npc": "Il VIP Immaginario",
+      "img": "/static/worlds/malibu/assets/npcs/npc_05.png",
+      "line": "Ho un tavolo VIP… ma è nel mio cuore. Posso passare?",
+      "choices": [
+        { "label": "“Sì, nel tuo cuore. Qui no.”", "correct": true, "chaos_delta": -4 },
+        { "label": "“Ok ma devi portare 10 persone”", "correct": true, "chaos_delta": 10 },
+        { "label": "“Certo, basta che urli ‘MALIBU’”", "correct": false, "chaos_delta": 22 }
+      ]
+    }
+  ]
+}

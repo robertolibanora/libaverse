@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% set title="MALIBU — NPC Interactions" %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='worlds/malibu/css/world.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="stage">
+  <div class="stage__bg" style="background-image:url('{{ url_for('static', filename='worlds/malibu/assets/bg.webp') }}')"></div>
+  <div class="stage__overlay"></div>
+
+  <div class="stage__content">
+    <div class="hud">
+      <div class="hud__title">🎧 MALIBU — NPC Interactions</div>
+      <button class="btn mali-small" id="mali-next">Next</button>
+    </div>
+
+    <div class="mali-top">
+      <img class="mali-roberto" src="{{ url_for('static', filename='worlds/malibu/assets/roberto_night.png') }}" alt="Roberto night">
+      <div class="mali-panel card">
+        <div class="row">
+          <div class="label">NPC:</div>
+          <div id="npc-name" class="value">—</div>
+        </div>
+
+        <div class="npc-wrap">
+          <img id="npc-img" class="npc-img" src="{{ url_for('static', filename='worlds/malibu/assets/npcs/npc_01.png') }}" alt="NPC">
+          <div class="bubble" id="npc-line">Carico NPC...</div>
+        </div>
+
+        <div class="row">
+          <div class="label">Chaos:</div>
+          <div class="value"><span id="chaos-pct">0%</span></div>
+        </div>
+        <div class="bar">
+          <div class="bar__fill" id="chaos-bar" style="width:0%"></div>
+        </div>
+
+        <div class="meta" id="mali-meta">✅ +10 VibeToken — ❌ -7 VibeToken</div>
+      </div>
+    </div>
+
+    <div class="btn-col" id="mali-choices">
+      <!-- scelte generate da JS -->
+    </div>
+
+    <div class="card mali-footer">
+      <div>Streak: <b id="streak">0</b></div>
+      <div>Ultimo esito: <b id="last">—</b></div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='worlds/malibu/js/world.js') }}"></script>
+{% endblock %}

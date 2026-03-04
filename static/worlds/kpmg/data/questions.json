@@ -1,0 +1,22 @@
+[
+  {
+    "id": "q1",
+    "text": "Hai 2 settimane e un dataset sporco. Cosa fai per partire bene?",
+    "answers": [
+      {"label": "Scrivo 80 pagine di doc e zero codice", "correct": false},
+      {"label": "MVP + logging + test minimi", "correct": true},
+      {"label": "Aspetto che qualcuno mi dica cosa fare", "correct": false},
+      {"label": "Riscrivo tutto in Rust per sicurezza", "correct": false}
+    ]
+  },
+  {
+    "id": "q2",
+    "text": "Bug: il risultato è sempre 0. La causa più probabile?",
+    "answers": [
+      {"label": "La variabile viene resettata nel loop", "correct": true},
+      {"label": "Il PC ha paura di te", "correct": false},
+      {"label": "È colpa dell’utente finale", "correct": false},
+      {"label": "Metti un try/except e spera", "correct": false}
+    ]
+  }
+]

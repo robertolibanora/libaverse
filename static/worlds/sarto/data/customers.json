@@ -1,0 +1,20 @@
+{
+  "customers": [
+    { "name": "Il Critico Gourmet", "request": "Voglio quello che sembra illegale ma è freschissimo.", "answer": "fish_cyber_tuna" },
+    { "name": "La Zia della Domenica", "request": "Serve qualcosa di elegante per far sembrare la famiglia normale.", "answer": "fish_ninja_seabass" },
+    { "name": "Il PR del Sabato", "request": "Mi serve una cosa con vibes spaziali. Deve urlare: 'serata grossa'.", "answer": "fish_mars_salmon" },
+    { "name": "Il CEO in Pausa Pranzo", "request": "Ho 6 minuti: dammi un pesce che domina la call anche da morto.", "answer": "fish_ceo_octopus" },
+
+    { "name": "L'Amico Tirchio", "request": "Quello più premium ma al prezzo di un caffè. Dai su.", "answer": "fish_cyber_tuna" },
+    { "name": "La Ragazza Chill", "request": "Niente caos, niente odore, solo vibe elegante.", "answer": "fish_ninja_seabass" },
+    { "name": "Il Filosofo", "request": "Voglio qualcosa che mi faccia capire l'universo. O almeno farmi finta.", "answer": "fish_mars_salmon" },
+    { "name": "L'Overachiever", "request": "Mi serve energia da leader. E un tentacolo di governance.", "answer": "fish_ceo_octopus" }
+  ],
+  "settings": {
+    "patience_seconds": 9,
+    "correct_delta": 10,
+    "wrong_delta": -7,
+    "streak_bonus_every": 3,
+    "streak_bonus_amount": 5
+  }
+}

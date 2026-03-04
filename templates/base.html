@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>{{ title if title else "LIBAVERSE" }}</title>
+
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#000000" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='app/css/app.css') }}">
+  {% block head_extra %}{% endblock %}
+</head>
+
+<body class="app">
+  {% include "_partials/topbar.html" %}
+
+  <main class="screen">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "_partials/nav.html" %}
+  {% include "_partials/toast.html" %}
+
+  <script src="{{ url_for('static', filename='app/js/api.js') }}"></script>
+  <script src="{{ url_for('static', filename='app/js/state.js') }}"></script>
+  <script src="{{ url_for('static', filename='app/js/app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

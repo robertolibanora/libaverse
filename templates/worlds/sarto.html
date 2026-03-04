@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% set title="SARTO — Fish Dealer" %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='worlds/sarto/css/world.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="stage">
+  <div class="stage__bg" style="background-image:url('{{ url_for('static', filename='worlds/sarto/assets/bg.webp') }}')"></div>
+  <div class="stage__overlay"></div>
+
+  <div class="stage__content">
+    <div class="hud">
+      <div class="hud__title">🐟 SARTO — Fish Dealer</div>
+      <button class="btn sarto-small" id="sarto-skip">Skip</button>
+    </div>
+
+    <div class="sarto-top">
+      <img class="sarto-roberto" src="{{ url_for('static', filename='worlds/sarto/assets/roberto_fisher.png') }}" alt="Roberto pescatore">
+      <div class="sarto-customer card">
+        <div class="row">
+          <div class="label">Cliente:</div>
+          <div id="cust-name" class="value">—</div>
+        </div>
+
+        <div class="bubble" id="cust-request">Carico richiesta...</div>
+
+        <div class="row">
+          <div class="label">Pazienza:</div>
+          <div class="value"><span id="patience-pct">100%</span></div>
+        </div>
+        <div class="bar">
+          <div class="bar__fill" id="patience-bar" style="width:100%"></div>
+        </div>
+
+        <div class="meta" id="sarto-meta">✅ +10 FishCoin — ❌ -7 FishCoin</div>
+      </div>
+    </div>
+
+    <div class="card sarto-instructions">
+      Tocca il pesce giusto prima che il cliente impazzisca.
+      <span class="muted">Streak = bonus.</span>
+    </div>
+
+    <div class="sarto-fishes" id="fish-grid">
+      <!-- popolato da JS -->
+    </div>
+
+    <div class="card sarto-score">
+      <div>Streak: <b id="streak">0</b></div>
+      <div>Ultimo esito: <b id="last">—</b></div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='worlds/sarto/js/world.js') }}"></script>
+{% endblock %}

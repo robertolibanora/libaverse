@@ -1,0 +1,14 @@
+.kpmg-row{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:12px;
+  margin-top:12px;
+}
+.kpmg-roberto{
+  width:160px;
+  justify-self:center;
+  filter: drop-shadow(0 16px 30px rgba(0,0,0,.55));
+}
+.kpmg-panel{ width:100%; }
+.q-text{ font-weight:900; font-size:16px; line-height:1.25; }
+.btn-col{ margin-top:10px; display:grid; gap:10px; }

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% set title="KPMG — PC & Quiz" %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='worlds/kpmg/css/world.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="stage">
+  <div class="stage__bg" style="background-image:url('{{ url_for('static', filename='worlds/kpmg/assets/bg.webp') }}')"></div>
+  <div class="stage__overlay"></div>
+
+  <div class="stage__content">
+    <div class="hud">
+      <div class="hud__title">🧠 KPMG — PC & Quiz</div>
+      <button class="btn" id="kpmg-next" style="width:auto;padding:10px 12px;">Next</button>
+    </div>
+
+    <div class="kpmg-row">
+      <img class="kpmg-roberto" src="{{ url_for('static', filename='worlds/kpmg/assets/roberto_tie.png') }}" alt="Roberto">
+      <div class="kpmg-panel card">
+        <div id="q-text" class="q-text">Carico domanda...</div>
+        <div class="btn-col" id="q-answers"></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px;">
+      <div style="color:var(--muted);font-size:13px;">
+        ✅ +10 BrainCell — ❌ -7 BrainCell
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='worlds/kpmg/js/world.js') }}"></script>
+{% endblock %}

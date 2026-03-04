@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% set title="Store" %}
+
+{% block content %}
+<section class="card">
+  <h2 style="margin:0 0 6px 0;">Store</h2>
+  <p style="margin:0;color:var(--muted);">Compra roba con mix di valute. È un sistema economico serio (no).</p>
+</section>
+
+<section class="grid" id="store-list" style="margin-top:12px;">
+  {% for item in catalog %}
+  <div class="card" data-item="{{ item.id }}">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+      <div>
+        <h3 style="margin:0 0 6px 0;">{{ item.name }}</h3>
+        <p style="margin:0;color:var(--muted);font-size:13px;">{{ item.desc }}</p>
+      </div>
+    </div>
+
+    <p style="margin:10px 0 12px 0;font-weight:800;">
+      {% if item.cost.fish %}🐟 {{ item.cost.fish }} {% endif %}
+      {% if item.cost.brain %}🧠 {{ item.cost.brain }} {% endif %}
+      {% if item.cost.vibe %}🎧 {{ item.cost.vibe }} {% endif %}
+    </p>
+
+    <button class="btn buy" data-buy="{{ item.id }}">Compra</button>
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='app/js/store.js') }}"></script>
+{% endblock %}
